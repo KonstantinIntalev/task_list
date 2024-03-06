@@ -1,6 +1,6 @@
 <html>
 <body>
-    <input type="text" placeholder="Введите дело" id="txt">
+    <input type="text" id="txt">
     <input type="button" value="Добавить" onclick="on()">
     <br/><h2>Делишки:</h2>
     <ul id="ul">
@@ -10,14 +10,15 @@
 </body>
 <script>
     function on(){
-        let txt = document.getElementById("txt").value;
-        if (txt == 0){
-            alert ("Вы не можете ничего не делать");
-        } else {
-            let delo = document.createElement('li');
-            delo.innerHTML = txt;
-            ul.prepend(delo);
-        }
+        let txt = document.getElementById("txt");
+            if (txt.value != ""){
+                let delo = document.createElement('li');
+                delo.innerHTML = txt.value;
+                ul.prepend(delo);
+            } else {
+                alert ("Вы не можете ничего не делать");
+            }
+        txt.value = '';
     }
 </script>
 </html>
