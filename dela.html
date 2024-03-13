@@ -2,13 +2,24 @@
 <body>
     <input type="text" id="txt">
     <input type="button" value="Добавить" onclick="on()">
-    <br/><h2>Делишки:</h2>
+    <br/><h2>Мутные Делишки:</h2>
     <ul id="ul">
-        <li>1</li>
-        <li>2</li>
+        <li class="marked">1</li>
+        <li class="marked">2</li>
     </ul>
 </body>
 <script>
+    document
+        .getElementById('ul')
+        .onclick = markDone
+    document
+        .addEventListener('keydown', chek)
+    function markDone(ev){
+        ev.target.style.textDecoration = 'line-through';
+    }
+    function chek(ev){
+        if (ev.code == "Enter"){on()}
+    }
     function on(){
         let txt = document.getElementById("txt");
             if (txt.value != ""){
